@@ -7,8 +7,8 @@ function App() {
   const [seconds, setSeconds] = useState(0);
   const [minutes, setMinutes] = useState(25);
   const [pause, setPause] = useState(true);
-  const [timeLeft, setTimeLeft] = useState([minutes, seconds])
-  const [tracker, setTracker] = useState('Session')
+  //const [timeLeft, setTimeLeft] = useState([minutes, seconds])
+  const [tracker, setTracker] = useState('Break')
 
   const handleBrIncrement = ()=> {
     if(breakLength >= 0 && breakLength < 60){
@@ -23,11 +23,13 @@ function App() {
   const handleSeIncrement = ()=> {
     if(sessionLength >= 0 && sessionLength < 60){
       setSessionLength(sessionLength+1)
+      setMinutes(sessionLength+1)
     }
   }
   const handleSeDecrement = () => {
     if(sessionLength > 1 && sessionLength < 60){
     setSessionLength(sessionLength-1)
+    setMinutes(sessionLength-1)
     }
   }
   const clearAll = () => {
@@ -35,12 +37,11 @@ function App() {
     setSessionLength(25)
     setSeconds(0)
     setMinutes(25)
+    setTracker('Break')
     setPause(true)
   }
-
   const togglePause = () => {
     setPause(!pause)
-    console.log(timeLeft)
   }
 
   useEffect(() => {
@@ -48,38 +49,36 @@ function App() {
     let interval;
 
     if (!pause) {
-    interval = setInterval(() => {
+    interval = setTimeout(() => {
         if(seconds > 0 && sessionLength >= 0){
           setSeconds(seconds - 1);
-          setMinutes(sessionLength)
           setTracker('Session')
         
         } else if (seconds === 0 && sessionLength > 0){
           setSeconds(60  - 1)
           setMinutes(sessionLength - 1);
           setTracker('Session')
-        
         }else if (seconds === 0 && sessionLength === 0){
           setSeconds(60  - 1)
           setMinutes(breakLength);
           setTracker('Break')
-        
+          
         }else if (seconds === 0 && breakLength > 0){
           setSeconds(60  - 1)
           setMinutes(breakLength - 1);
           setTracker('Break')
-        
+          
         }else if(seconds > 0 && breakLength >= 0){
           setSeconds(seconds - 1);
-          setMinutes(breakLength)
           setTracker('Break')
-        
+          
         }else if (seconds === 0 && breakLength === 0){
           setSeconds(60  - 1)
           setMinutes(sessionLength);
           setTracker('Session')
+          /*
+          */
         }
-        
       }, 1000);
     }
       else if (pause && setMinutes !== 0) {
