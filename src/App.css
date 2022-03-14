@@ -1,38 +1,50 @@
 .App {
   text-align: center;
+  display: grid;
+  width: 80vw;
+  margin: auto;
+  grid-template-areas: 
+  'timer-label timer-label timer-label timer-label'
+  'time-left time-left time-left time-left'
+  'start-stop start-stop reset reset'
+  'break-label break-label session-label session-label'
+  'break-length break-length session-length session-length'
+  'break-decrement break-increment session-decrement session-increment';
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#timer-label{
+  grid-area: timer-label;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#time-left{
+  grid-area: time-left;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#start_stop{
+  grid-area: start-stop;
 }
-
-.App-link {
-  color: #61dafb;
+#reset{
+  grid-area: reset;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#break-label{
+  grid-area:break-label;
+}
+#break-length{
+  grid-area: break-length;
+}
+#break-decrement{
+  grid-area: break-decrement;
+}
+#break-increment{
+  grid-area: break-increment;
+}
+#session-label{
+  grid-area: session-label;
+}
+#session-length{
+  grid-area: session-length;
+}
+#session-decrement{
+  grid-area: session-decrement;
+}
+#session-increment{
+  grid-area: session-increment;
 }
