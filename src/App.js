@@ -87,7 +87,7 @@ function App() {
             setType("Session");
           }
         }
-      }, 200);
+      }, 1000);
     } else if (pause && setMinutes !== 0) {
       clearInterval(interval);
     }
