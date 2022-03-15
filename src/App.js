@@ -98,22 +98,25 @@ function App() {
     <div className="App">
       <span id="timer-label">{type}</span>
       <span id="time-left">{`${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`}</span>
-      <button id="start_stop" onClick={togglePause}>start-stop</button>
-      <button id="reset" onClick={clearAll}>reset</button>
+      <button id="start_stop" onClick={togglePause}><i class="fa-solid fa-play"></i> <i class="fa-solid fa-pause"></i></button>
+      <button id="reset" onClick={clearAll}><i class="fa-solid fa-arrows-rotate"></i></button>
 
       <audio id="beep" type="audio/mp3" preload="auto" ref={myAudio}
         src="https://raw.githubusercontent.com/freeCodeCamp/cdn/master/build/testable-projects-fcc/audio/BeepSound.wav"
       />
-
-      <h2 id="break-label">Break length</h2>
-      <span id="break-length">{breakLength}</span>
-      <button id="break-decrement" onClick={handleBrDecrement}>-</button>
-      <button id="break-increment" onClick={handleBrIncrement}>+</button>
-
-      <h2 id="session-label">Session length</h2>
-      <span id="session-length">{sessionLength}</span>
-      <button id="session-decrement" onClick={handleSeDecrement}>-</button>
-      <button id="session-increment" onClick={handleSeIncrement}>+</button>
+      <div id="break-container">
+        <h2 id="break-label">Break length</h2>
+        <button id="break-decrement" className="btn" onClick={handleBrDecrement}>-</button>
+        <span id="break-length">{breakLength}</span>
+        <button id="break-increment" className="btn" onClick={handleBrIncrement}>+</button>
+      </div>
+      
+      <div id="session-container">
+        <h2 id="session-label">Session length</h2>
+        <button id="session-decrement" className="btn" onClick={handleSeDecrement}>-</button>
+        <span id="session-length">{sessionLength}</span>
+        <button id="session-increment" className="btn" onClick={handleSeIncrement}>+</button>
+      </div>
     </div>
   );
 }

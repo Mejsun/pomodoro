@@ -1,50 +1,59 @@
 .App {
   text-align: center;
-  display: grid;
-  width: 80vw;
   margin: auto;
+  margin-top: 30vh;
+  display: grid;
+  width: 60vw;
   grid-template-areas: 
-  'timer-label timer-label timer-label timer-label'
-  'time-left time-left time-left time-left'
-  'start-stop start-stop reset reset'
-  'break-label break-label session-label session-label'
-  'break-length break-length session-length session-length'
-  'break-decrement break-increment session-decrement session-increment';
+  'timer-label timer-label'
+  'time-left  time-left'
+  'start-stop  reset'
+  'break session';
+  background-color: rgb(241, 127, 127);
+  padding: 20px;
 }
-
 #timer-label{
   grid-area: timer-label;
+  font-size: 2rem;
 }
 #time-left{
   grid-area: time-left;
+  font-size: 3.5rem;
+  padding: 15px;
 }
 #start_stop{
   grid-area: start-stop;
 }
 #reset{
   grid-area: reset;
+  font-size: 15px;
 }
-#break-label{
-  grid-area:break-label;
+#start_stop, #reset{
+  width: 50%;
+  height: 30px;
+  margin: auto;
+  border: none;
+  border-radius: 10px;
 }
-#break-length{
-  grid-area: break-length;
+#break-container{
+  grid-area: break;
 }
-#break-decrement{
-  grid-area: break-decrement;
+#session-container{
+  grid-area: session;
 }
-#break-increment{
-  grid-area: break-increment;
+button:hover{
+  filter:brightness(80%);
+  cursor: pointer;
 }
-#session-label{
-  grid-area: session-label;
+#session-length, #break-length{
+  padding: 20px;
+  font-weight: 500;
+  font-size: 1.5rem;
 }
-#session-length{
-  grid-area: session-length;
-}
-#session-decrement{
-  grid-area: session-decrement;
-}
-#session-increment{
-  grid-area: session-increment;
+.btn{
+ font-size: 1.5rem;
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ border: none;
 }
